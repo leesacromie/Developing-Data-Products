@@ -1,0 +1,20 @@
+---
+title: "Good Coffee!"
+author: "Leesa Cromie"
+date: "2/19/2022"
+output: html_document
+---
+
+
+
+```{r map, echo = FALSE, warning=FALSE}
+library(leaflet)
+lat = c(38.9041772, 38.9053620, 38.8626925)
+long = c(-77.0503934, -77.0414930, -77.0554742)
+names = c("Bluestone Lane West End", "Bluestone Lane Dupont Circle", "Commonwealth Joe Coffee Roasters")
+coffee <- data.frame(lat, long)
+coffee %>%
+  leaflet() %>%
+  addTiles() %>%
+  addMarkers(popup = names)
+```
